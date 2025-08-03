@@ -37,8 +37,36 @@ echo "</pre>";
 
 <body>
     <div class="container">
+        <h1 class="text-center">Lista Film</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
+            <?php
+            // echo "<pre>";
+            // var_dump($inception);
+            // echo "</pre>";
+            // echo gettype($inception);
+            foreach ($inception as $key1 => $value1) {
+                if (is_string($value1) || is_int($value1)) {
+                    echo "<p>$key1 : $value1";
+                }
+                //     echo "<div class='col'>
+                //     <div class='card h-100'>
+                //         <img src= class='card-img-top' alt=>
+                //         <div class='card-body'>
+                //             <h5 class='card-title'>{$value1}</h5>
+                //             <p class='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                //         </div>
+                //     </div>
+                // </div>";
+                if (is_iterable($value1)) {
+                    foreach ($value1 as $currentIstance) {
+                        foreach ($currentIstance as $key2 => $value2) {
+                            echo "<p><strong>$key2 : $value2</strong></p>";
+                        }
+                    }
+                }
+            }
+            ?>
+            <!-- <div class="col">
                 <div class="card h-100">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -55,7 +83,7 @@ echo "</pre>";
                         <p class="card-text">This is a short card.</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>

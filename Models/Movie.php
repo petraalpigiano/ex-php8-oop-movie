@@ -1,5 +1,5 @@
 <?php
-class Movie
+class Movie implements IteratorAggregate
 {
     public $name;
     public $director;
@@ -29,5 +29,17 @@ class Movie
     public function setGenre(Genre $_genre)
     {
         $this->genres[] = $_genre;
+    }
+
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator([
+            'name' => $this->name,
+            'director' => $this->director,
+            'actor' => $this->actor,
+            'year' => $this->year,
+            'genres' => $this->genres,
+            'description' => $this->description,
+        ]);
     }
 }
