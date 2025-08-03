@@ -1,5 +1,16 @@
 <?php
 
+trait Plot
+{
+    public $description;
+
+    public function getDescription($_description)
+    {
+        echo $_description;
+    }
+}
+
+
 class Genre
 {
     public $name;
@@ -21,6 +32,8 @@ class Movie
     public $year;
     public $genres = [];
 
+    use Plot;
+
 
     function __construct($_name, $_director, $_actor, $_year)
     {
@@ -29,9 +42,9 @@ class Movie
         $this->actor = $_actor;
         $this->year = $_year;
     }
-    public function getYear($year)
+    public function getYear($_year)
     {
-        if ($year >= 2010) {
+        if ($_year >= 2010) {
             echo "Il film è recente";
         } else {
             echo "Il film non è recente";
@@ -48,6 +61,8 @@ $inception = new Movie("Inception", "Christopher Nolan", "Leonardo di Caprio", 2
 $inception->getYear(2010);
 $inception->setGenre(new Genre("sci-fi", 16));
 $inception->setGenre(new Genre("azione", 16));
+echo "<br>";
+$inception->getDescription("Dom Cobb possiede una qualifica speciale: è in grado di inserirsi nei sogni altrui per prelevare i segreti nascosti nel più profondo del subconscio. Viene contattato da Saito, un potentissimo industriale giapponese");
 echo "<pre>";
 var_dump($inception);
 echo "</pre>";
