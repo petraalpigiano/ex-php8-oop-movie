@@ -5,6 +5,7 @@ trait Plot
 
     public function getDescription($_description)
     {
-        echo $_description;
+        echo "Questa è la trama: " . $_description;
+        $this->description = $_description;
     }
 }
