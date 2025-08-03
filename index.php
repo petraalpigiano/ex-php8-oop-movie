@@ -19,13 +19,15 @@ class Movie
     public $director;
     public $actor;
     public $year;
+    public $genre;
 
-    function __construct($_name, $_director, $_actor, $_year)
+    function __construct($_name, $_director, $_actor, $_year, Genre $_genre)
     {
         $this->name = $_name;
         $this->director = $_director;
         $this->actor = $_actor;
         $this->year = $_year;
+        $this->genre = $_genre;
     }
     public function getYear($year)
     {
@@ -37,13 +39,13 @@ class Movie
     }
 }
 
-$inception = new Movie("Inception", "Christopher Nolan", "Leonardo di Caprio", 2010);
+$inception = new Movie("Inception", "Christopher Nolan", "Leonardo di Caprio", 2010, new Genre("sci-fi", 16));
 $inception->getYear(2010);
 echo "<pre>";
 var_dump($inception);
 echo "</pre>";
 
-$thePrestige = new Movie("The prestige", "Christopher Nolan", "Christian Bale", 2006);
+$thePrestige = new Movie("The prestige", "Christopher Nolan", "Christian Bale", 2006, new Genre("thriller", 16));
 $thePrestige->getYear(2006);
 echo "<pre>";
 var_dump($thePrestige);
