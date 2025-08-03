@@ -47,19 +47,20 @@ echo "</pre>";
             foreach ($inception as $key1 => $value1) {
                 if (is_string($value1) || is_int($value1)) {
                     echo "<p>$key1 : $value1";
+                    //     echo "<div class='col'>
+                    //     <div class='card h-100'>
+                    //         <img src= class='card-img-top' alt=>
+                    //         <div class='card-body'>
+                    //             <h5 class='card-title'>{$value1}</h5>
+                    //             <p class='card-text'>{$value1}</p>
+                    //         </div>
+                    //     </div>
+                    // </div>";
                 }
-                //     echo "<div class='col'>
-                //     <div class='card h-100'>
-                //         <img src= class='card-img-top' alt=>
-                //         <div class='card-body'>
-                //             <h5 class='card-title'>{$value1}</h5>
-                //             <p class='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                //         </div>
-                //     </div>
-                // </div>";
+
                 if (is_iterable($value1)) {
-                    foreach ($value1 as $currentIstance) {
-                        foreach ($currentIstance as $key2 => $value2) {
+                    foreach ($value1 as $currentInstance) {
+                        foreach ($currentInstance as $key2 => $value2) {
                             echo "<p><strong>$key2 : $value2</strong></p>";
                         }
                     }
