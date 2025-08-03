@@ -6,7 +6,7 @@ class Movie
     public $actor;
     public $year;
 
-    function __constructor($_name, $_director, $_actor, $_year)
+    function __construct($_name, $_director, $_actor, $_year)
     {
         $this->name = $_name;
         $this->director = $_director;
@@ -22,6 +22,22 @@ class Movie
         }
     }
 }
+
+$inception = new Movie("Inception", "Christopher Nolan", "Leonardo di Caprio", 2010);
+$inception->getYear(2010);
+echo "<pre>";
+var_dump($inception);
+echo "</pre>";
+
+$thePrestige = new Movie("The prestige", "Christopher Nolan", "Christian Bale", 2006);
+$thePrestige->getYear(2006);
+echo "<pre>";
+var_dump($thePrestige);
+echo "</pre>";
+
+
+
+
 
 ?>
 
