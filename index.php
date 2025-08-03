@@ -19,15 +19,15 @@ class Movie
     public $director;
     public $actor;
     public $year;
-    public $genre;
+    public $genres = [];
 
-    function __construct($_name, $_director, $_actor, $_year, Genre $_genre)
+
+    function __construct($_name, $_director, $_actor, $_year)
     {
         $this->name = $_name;
         $this->director = $_director;
         $this->actor = $_actor;
         $this->year = $_year;
-        $this->genre = $_genre;
     }
     public function getYear($year)
     {
@@ -37,26 +37,30 @@ class Movie
             echo "Il film non è recente";
         }
     }
+
+    public function setGenre(Genre $_genre)
+    {
+        $this->genres[] = $_genre;
+    }
 }
 
-$inception = new Movie("Inception", "Christopher Nolan", "Leonardo di Caprio", 2010, new Genre("sci-fi", 16));
+$inception = new Movie("Inception", "Christopher Nolan", "Leonardo di Caprio", 2010);
 $inception->getYear(2010);
+$inception->setGenre(new Genre("sci-fi", 16));
+$inception->setGenre(new Genre("azione", 16));
 echo "<pre>";
 var_dump($inception);
 echo "</pre>";
 
-$thePrestige = new Movie("The prestige", "Christopher Nolan", "Christian Bale", 2006, new Genre("thriller", 16));
+$thePrestige = new Movie("The prestige", "Christopher Nolan", "Christian Bale", 2006);
 $thePrestige->getYear(2006);
+$thePrestige->setGenre(new Genre("thriller", 16));
+$thePrestige->setGenre(new Genre("sci-fi", 16));
 echo "<pre>";
 var_dump($thePrestige);
 echo "</pre>";
 
-
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
